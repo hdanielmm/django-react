@@ -1,0 +1,19 @@
+sudo -u postgres psql
+
+create database leadsdatabase;
+create user leadsdatabaseuser with encrypted password 'leadspassword';
+alter role leadsdatabaseuser set client_encoding to 'utf8';
+alter role leadsdatabaseuser set default_transaction_isolation to 'read committed';
+alter role leadsdatabaseuser set timezone to 'UTC';
+grant all privileges on database leadsdatabase to leadsdatabaseuser;
+
+
+
+Database credentials
+
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': 'leadsdatabase',
+'USER': 'leadsdatabaseuser',
+'PASSWORD': 'leadspassword',
+'HOST': '127.0.0.1',
+'PORT': '5432',
